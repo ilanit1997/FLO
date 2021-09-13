@@ -28,7 +28,7 @@ In addition, any client is either served by some facility, or it is considered t
 
 **Python Implementation:**
 
-* To run (custom data set): ```python main.py filename z m```
+* To run (custom data set): ```python lp-flo.py filename z m```
 
 
 **Known problems:**
