@@ -16,8 +16,7 @@ In addition, any client is either served by some facility, or it is considered t
 
 **The LP relaxation of this IP is:**
 
-<img src="https://bit.ly/3tzNjQ1" align="center" border="0" alt="\min \sum_{v,f} d(v, f) · x_{vf} + z \sum_{f} y_f s.t \\\forall v \in P, f \in F: y_{f} \ge  x_{vf}  \\\forall v \in P: \sum_{f} x_{vf} + o_v \ge 1 \\ -\sum_{v} o_v \ge - m\\\forall v \in P, f \in F: x_{vf} , y_f , o_v \ge 0" width="222" height="176" />
-
+http://www.sciweavers.org/upload/Tex2Img_1631528530/render.png
 
 **Data input:**
 
