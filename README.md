@@ -29,3 +29,8 @@ In addition, any client is either served by some facility, or it is considered t
 **Python Implementation:**
 
 * To run (custom data set): ```python main.py filename z m```
+
+
+**Known problems:**
+
+* outliers be also be facilities - need to define extra constrains for this.
