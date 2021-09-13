@@ -16,7 +16,7 @@ In addition, any client is either served by some facility, or it is considered t
 
 **The LP relaxation of this IP is:**
 
-http://www.sciweavers.org/upload/Tex2Img_1631528530/render.png
+![Image](http://www.sciweavers.org/upload/Tex2Img_1631528530/render.png)
 
 **Data input:**
 
