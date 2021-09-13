@@ -27,3 +27,6 @@ In addition, any client is either served by some facility, or it is considered t
 
 * CSV files must have extension ".txt" and be in the same directory
 
+**Python Implementation:**
+
+* To run (custom data set): python main.py filename z m
