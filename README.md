@@ -1,4 +1,4 @@
 # RBD
-The following project files are for the following problems:
+This project files are for the following problems:
 
 * Facility location with m outliers.
