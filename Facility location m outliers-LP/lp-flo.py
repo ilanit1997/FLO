@@ -4,6 +4,8 @@ from helper import *
 
 
 def FLO_M_LP(Facilities, Clients, Distances, z, m):
+    n = Distances.shape[0]
+    G = np.zeros((n,n))
     # Setting the Problem
     Facilities = ['STATION {}'.format(x) for x in Facilities]
     prob = LpProblem("Facility Location Problem with m outliers", LpMinimize)
@@ -26,6 +28,8 @@ def FLO_M_LP(Facilities, Clients, Distances, z, m):
         for f in Facilities:
             prob += use_facility[f] - ser_customer[(v,f)] >=0
 
+    # prob += outlier_customer[57] == 1
+    # prob += outlier_customer[62] == 1
 
     # for all v: \sum f x_vf + o_v >=1
     for v in Clients:
@@ -59,6 +63,7 @@ def FLO_M_LP(Facilities, Clients, Distances, z, m):
                 current_f = int(f.split(' ')[1])
                 if v not in final_clients:
                     final_clients.append(v)
+                G[v][current_f] = 1
                 print("client:", v, ' is served by facility:' , current_f)
 
     for o in Clients:
@@ -71,16 +76,17 @@ def FLO_M_LP(Facilities, Clients, Distances, z, m):
     cost = value(prob.objective)
     print("The total cost of installing and operating facilities = ", cost)
 
-    return open_facilities, final_clients, outliers, cost
+    return open_facilities, final_clients, outliers, cost, G
 
 
 if __name__ == '__main__':
     num_args = len(sys.argv)
-    if num_args == 0:
+    if num_args == 1:
         #generate data with default values
         types = ['Boston', 'Simple']
-        P = generate_date(type='Boston')
-        z, m = 20, 6
+        P = generate_date(type='Simple')
+        z, m = 5, 3
+
     #insert data from txt file (no header)
     elif num_args == 3:
         file_name = sys.argv[1]
@@ -90,5 +96,5 @@ if __name__ == '__main__':
 
     D = euclidean_distances(P.T, P.T)
     Clients, Facilities = list(range(P.shape[1])), list(range(P.shape[1]))
-    open_facilities, final_clients, outliers, cost = FLO_M_LP(Facilities, Clients, D, z, m)
+    open_facilities, final_clients, outliers, cost, G = FLO_M_LP(Facilities, Clients, D, z, m)
     plot_points(open_facilities, final_clients, outliers, cost, m , z, P)
